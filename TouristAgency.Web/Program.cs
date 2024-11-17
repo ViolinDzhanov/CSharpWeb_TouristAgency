@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TouristAgency.Web.Data;
+using TouristAgency.Web.Extensions;
 
 namespace TouristAgency.Web
 {
@@ -9,17 +10,11 @@ namespace TouristAgency.Web
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-            // Add services to the container.
-            builder.Services.AddDbContext<TouristAgencyDbContext>(options =>
-                options.UseSqlServer(connectionString));
+            builder.Services.AddApplicationDatabase(builder.Configuration);
+            builder.Services.AddApplicationIdentity(builder.Configuration);
+            builder.Services.AddApplicationServices(builder.Configuration);
 
-          
-           
-
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<TouristAgencyDbContext>();
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
@@ -41,6 +36,7 @@ namespace TouristAgency.Web
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

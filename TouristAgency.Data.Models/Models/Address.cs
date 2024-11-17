@@ -1,6 +1,7 @@
 ﻿using static TouristAgency.Common.ApplicationConstants;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace TouristAgency.Data.Models.Models
@@ -9,15 +10,19 @@ namespace TouristAgency.Data.Models.Models
     {
         public Address()
         {
-            Id = new Guid();
+            Id = Guid.NewGuid();
             Customers = new List<Customer>();
         }
         [Key]
+        [Comment("Unique Identifier")]
         public Guid Id { get; set; } 
 
         [Required]
         [MaxLength(AddressStreetNameMaxLength)]
+        [Comment("Street name")]
         public string StreetName { get; set; } =null!;
+
+        [Comment("Street number")]
         public int StreetNumber { get; set; }
 
         [Required]

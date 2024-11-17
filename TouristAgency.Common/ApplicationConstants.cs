@@ -17,7 +17,10 @@
         public const int CustomerFirstNameMaxLength = 50;
         public const int CustomerLastNameMinLength = 2;
         public const int CustomerLastNameMaxLength = 50;
-        public const int CustomerMinAge = 1;
-        public const int CustomerMaxAge = 120;
+        //public const int CustomerMinAge = 1;
+        //public const int CustomerMaxAge = 120;
+
+        public const int HotelNameMinLength = 2;
+        public const int HotelNameMaxLength = 50;
     }
 }
