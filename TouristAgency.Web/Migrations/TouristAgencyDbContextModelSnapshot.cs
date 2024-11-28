@@ -182,7 +182,7 @@ namespace TouristAgency.Web.Migrations
 
                     b.HasIndex("TownId");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Addresses", (string)null);
                 });
 
             modelBuilder.Entity("TouristAgency.Data.Models.Models.Booking", b =>
@@ -210,7 +210,7 @@ namespace TouristAgency.Web.Migrations
 
                     b.HasIndex("HotelId");
 
-                    b.ToTable("Bookings");
+                    b.ToTable("Bookings", (string)null);
                 });
 
             modelBuilder.Entity("TouristAgency.Data.Models.Models.Country", b =>
@@ -228,7 +228,7 @@ namespace TouristAgency.Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Countries");
+                    b.ToTable("Countries", (string)null);
                 });
 
             modelBuilder.Entity("TouristAgency.Data.Models.Models.Customer", b =>
@@ -325,7 +325,7 @@ namespace TouristAgency.Web.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("GuestsRooms");
+                    b.ToTable("GuestsRooms", (string)null);
                 });
 
             modelBuilder.Entity("TouristAgency.Data.Models.Models.Hotel", b =>
@@ -348,7 +348,7 @@ namespace TouristAgency.Web.Migrations
 
                     b.HasIndex("AddressId");
 
-                    b.ToTable("Hotels");
+                    b.ToTable("Hotels", (string)null);
                 });
 
             modelBuilder.Entity("TouristAgency.Data.Models.Models.Room", b =>
@@ -377,7 +377,7 @@ namespace TouristAgency.Web.Migrations
 
                     b.HasIndex("HotelId");
 
-                    b.ToTable("Rooms");
+                    b.ToTable("Rooms", (string)null);
                 });
 
             modelBuilder.Entity("TouristAgency.Data.Models.Models.Town", b =>
@@ -400,7 +400,7 @@ namespace TouristAgency.Web.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("Towns");
+                    b.ToTable("Towns", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>

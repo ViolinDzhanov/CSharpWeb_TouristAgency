@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TouristAgency.Data.Models.Models;
+using TouristAgency.Web.Data.Configurations;
 
 namespace TouristAgency.Web.Data
 {
@@ -27,6 +28,8 @@ namespace TouristAgency.Web.Data
 
             builder.Entity<GuestRoom>()
                 .HasKey(gr => new { gr.GuestId, gr.RoomId });
+
+            builder.ApplyConfiguration(new CountriesEntityConfiguration());
         }
     }
 }
