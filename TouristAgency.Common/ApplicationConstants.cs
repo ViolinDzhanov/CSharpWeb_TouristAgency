@@ -22,5 +22,7 @@
 
         public const int HotelNameMinLength = 2;
         public const int HotelNameMaxLength = 50;
+
+        public const string DateAndTimeFormat = "dd/MM/yyyy";
     }
 }

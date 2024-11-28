@@ -26,10 +26,18 @@ namespace TouristAgency.Web.Extensions
         public static IServiceCollection AddApplicationIdentity(this IServiceCollection services,
            IConfiguration configuration)
         {
-           services.AddIdentity<Customer, IdentityRole<Guid>>(options => options.SignIn.RequireConfirmedAccount = true)
-               .AddEntityFrameworkStores<TouristAgencyDbContext>()
-               .AddDefaultTokenProviders()
-               .AddDefaultUI();
+            services.AddIdentity<Customer, IdentityRole<Guid>>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequireDigit = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
+            })
+                .AddEntityFrameworkStores<TouristAgencyDbContext>()
+                .AddDefaultTokenProviders()
+                .AddDefaultUI();
 
             return services;
         }
