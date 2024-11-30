@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TouristAgency.Web.Data;
 
@@ -11,9 +12,11 @@ using TouristAgency.Web.Data;
 namespace TouristAgency.Web.Migrations
 {
     [DbContext(typeof(TouristAgencyDbContext))]
-    partial class TouristAgencyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241130161910_SeedCountryEntity")]
+    partial class SeedCountryEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -233,17 +236,17 @@ namespace TouristAgency.Web.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f05400a5-1b5e-48af-b770-4fe41a045335"),
+                            Id = new Guid("d225932b-e49b-4f30-89a3-a1863c6857f6"),
                             Name = "Bulgaria"
                         },
                         new
                         {
-                            Id = new Guid("63eaa539-c251-48f0-a4c6-6b05974bd08d"),
+                            Id = new Guid("360218ce-abbb-4ddf-a0d3-0900dab63843"),
                             Name = "Greece"
                         },
                         new
                         {
-                            Id = new Guid("723b0d89-c511-45f1-b42a-2e4b9ea64885"),
+                            Id = new Guid("8a7ab379-4ccd-43b6-a9b3-7c22bb5d9f11"),
                             Name = "Italy"
                         });
                 });
@@ -418,62 +421,6 @@ namespace TouristAgency.Web.Migrations
                     b.HasIndex("CountryId");
 
                     b.ToTable("Towns");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("cd11f2e1-cb7e-4798-b5a7-14137d47b5f1"),
-                            CountryId = new Guid("d225932b-e49b-4f30-89a3-a1863c6857f6"),
-                            Name = "Sofia"
-                        },
-                        new
-                        {
-                            Id = new Guid("64426a37-b3bd-49c6-9172-d288f108d63d"),
-                            CountryId = new Guid("d225932b-e49b-4f30-89a3-a1863c6857f6"),
-                            Name = "Plovdiv"
-                        },
-                        new
-                        {
-                            Id = new Guid("11d990df-1826-473b-b7aa-90b75692057f"),
-                            CountryId = new Guid("d225932b-e49b-4f30-89a3-a1863c6857f6"),
-                            Name = "Varna"
-                        },
-                        new
-                        {
-                            Id = new Guid("59fb5adf-4f0c-4be8-8c95-e8e39c88f440"),
-                            CountryId = new Guid("360218ce-abbb-4ddf-a0d3-0900dab63843"),
-                            Name = "Athens"
-                        },
-                        new
-                        {
-                            Id = new Guid("8bd2d44c-8022-4eac-a96b-e0dac18f1c21"),
-                            CountryId = new Guid("360218ce-abbb-4ddf-a0d3-0900dab63843"),
-                            Name = "Thessaloniki"
-                        },
-                        new
-                        {
-                            Id = new Guid("363da011-b42d-47bf-a96a-b73b555b845f"),
-                            CountryId = new Guid("360218ce-abbb-4ddf-a0d3-0900dab63843"),
-                            Name = "Patras"
-                        },
-                        new
-                        {
-                            Id = new Guid("7366dcf6-962d-4ad0-890f-d425668a1076"),
-                            CountryId = new Guid("8a7ab379-4ccd-43b6-a9b3-7c22bb5d9f11"),
-                            Name = "Rome"
-                        },
-                        new
-                        {
-                            Id = new Guid("22a306f1-82b9-4b3c-98f3-45bef82323ef"),
-                            CountryId = new Guid("8a7ab379-4ccd-43b6-a9b3-7c22bb5d9f11"),
-                            Name = "Milan"
-                        },
-                        new
-                        {
-                            Id = new Guid("1dc6be30-98d1-44d6-bab4-a41456d29a89"),
-                            CountryId = new Guid("8a7ab379-4ccd-43b6-a9b3-7c22bb5d9f11"),
-                            Name = "Venice"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>

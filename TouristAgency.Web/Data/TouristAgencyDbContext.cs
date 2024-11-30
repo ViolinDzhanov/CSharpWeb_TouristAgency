@@ -30,6 +30,7 @@ namespace TouristAgency.Web.Data
                 .HasKey(gr => new { gr.GuestId, gr.RoomId });
 
             builder.ApplyConfiguration(new CountriesEntityConfiguration());
+            builder.ApplyConfiguration(new TownsEntityConfiguration());
         }
     }
 }
